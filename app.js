@@ -2,14 +2,14 @@ const parentElement = document.getElementById("parentElement");
 const showMassage = document.getElementById("showMassage");
 const changeColor = document.body.style;
 
-const HEART_INTERVAL = 125;
+const HEART_INTERVAL = 100;
 const HEART_LIFETIME = 10000;
 const MIN_FONT_SIZE = 20;
 const MAX_FONT_SIZE = 50;
 const MIN_ANIM_DURATION = 4;
-const MAX_ANIM_DURATION = 6;
+const MAX_ANIM_DURATION = 10;
 
-const heartSymbols = ["❤️", "💖", "💜", "💙", "🩷", "💖", "💕 ", "💓", "💗", "💞", "🥰", "🌹", "✨️"];
+const heartSymbols = ["🐒", "🦍", "🌴", "🏂", "🏔️", "❤️", "💖", "💜", "💙", "💖", "🩵", "💚", "🌹"];
 
 propose = () => {
   setInterval(() => {
