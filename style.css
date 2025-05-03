@@ -85,16 +85,92 @@ footer a {
     text-decoration: none;
 }
 
-.heart {
+/* normal */
+.heart180 {
     position: absolute;
     top: -10px;
     font-size: 48px;
-    animation: fall linear infinite;
+    animation: fall180 linear infinite;
 }
 
-@keyframes fall {
+@keyframes fall180 {
+    to {
+        transform: translateY(100vh) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+.heart360 {
+    position: absolute;
+    top: -10px;
+    font-size: 48px;
+    animation: fall360 linear infinite;
+}
+
+@keyframes fall360 {
     to {
         transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+.heart720 {
+    position: absolute;
+    top: -10px;
+    font-size: 48px;
+    animation: fall720 linear infinite;
+}
+
+@keyframes fall720 {
+    to {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* reverser */
+.heartReverse180 {
+    position: absolute;
+    top: -10px;
+    font-size: 48px;
+    animation: fallReverse180 linear infinite;
+}
+
+
+@keyframes fallReverse180 {
+    to {
+        transform: translateY(100vh) rotate(-180deg);
+        opacity: 0;
+    }
+}
+
+.heartReverse360 {
+    position: absolute;
+    top: -10px;
+    font-size: 48px;
+    animation: fallReverse360 linear infinite;
+}
+
+
+@keyframes fallReverse360 {
+    to {
+        transform: translateY(100vh) rotate(-360deg);
+        opacity: 0;
+    }
+}
+
+
+.heartReverse720 {
+    position: absolute;
+    top: -10px;
+    font-size: 48px;
+    animation: fallReverse720 linear infinite;
+}
+
+
+@keyframes fallReverse720 {
+    to {
+        transform: translateY(100vh) rotate(-720deg);
         opacity: 0;
     }
 }

@@ -2,19 +2,40 @@ const parentElement = document.getElementById("parentElement");
 const showMassage = document.getElementById("showMassage");
 const changeColor = document.body.style;
 
-const HEART_INTERVAL = 150;
+const HEART_INTERVAL = 10;
 const HEART_LIFETIME = 10000;
 const MIN_FONT_SIZE = 20;
 const MAX_FONT_SIZE = 50;
 const MIN_ANIM_DURATION = 4;
 const MAX_ANIM_DURATION = 6;
-// const heartSymbols = ["❤️", "💖", "💜", "💙", "💛", "💚", "🩷"];
-const heartSymbols = ["❤️", "💖", "💜", "💙", "🩷"];
+
+const heartSymbols = ["❤️", "💖", "💜", "💙", "🩷", "💖", "💕 ", "💓", "💗", "💞", "🥰", "🌹", "✨️"];
 
 propose = () => {
   setInterval(() => {
     const heart = document.createElement("div");
-    heart.className = "heart";
+
+    const heartClassName = Math.random();
+
+    if (heartClassName >= 0 && heartClassName < .166) {
+      heart.className = "heart180";
+    } 
+    else if (heartClassName >= .166 && heartClassName < .332) {
+      heart.className = "heart360";
+    }
+    else if (heartClassName >= .332 && heartClassName < .498) {
+      heart.className = "heart720";
+    }
+    else if (heartClassName >= .498 && heartClassName < .664) {
+      heart.className = "heartReverse180";
+    }
+    else if (heartClassName >= .664 && heartClassName < .83) {
+      heart.className = "heartReverse360";
+    }
+    else {
+      heart.className = "heartReverse720";
+    }
+
     heart.innerHTML = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
 
     const fontSize = Math.random() * (MAX_FONT_SIZE - MIN_FONT_SIZE) + MIN_FONT_SIZE;
@@ -35,6 +56,10 @@ propose = () => {
   changeColor.background =
     "linear-gradient(117deg, #ff41f7 0%, rgba(255, 73, 73, 0.81) 100%)";
 };
+
+declineRequest = () => {
+  alert("💔");
+}
 
 theDate();
 
