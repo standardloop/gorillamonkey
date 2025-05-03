@@ -2,7 +2,7 @@ const parentElement = document.getElementById("parentElement");
 const showMassage = document.getElementById("showMassage");
 const changeColor = document.body.style;
 
-const HEART_INTERVAL = 10;
+const HEART_INTERVAL = 75;
 const HEART_LIFETIME = 10000;
 const MIN_FONT_SIZE = 20;
 const MAX_FONT_SIZE = 50;
