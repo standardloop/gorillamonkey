@@ -3,40 +3,59 @@ const showMassage = document.getElementById("showMassage");
 const changeColor = document.body.style;
 
 const HEART_INTERVAL = 100;
-const HEART_LIFETIME = 10000;
-const MIN_FONT_SIZE = 20;
+const HEART_LIFETIME = 50000;
+const MIN_FONT_SIZE = 10;
 const MAX_FONT_SIZE = 50;
 const MIN_ANIM_DURATION = 4;
-const MAX_ANIM_DURATION = 10;
+const MAX_ANIM_DURATION = 12;
 
-const heartSymbols = ["🐒", "🦍", "🌴", "🏂", "🏔️", "❤️", "💖", "💜", "💙", "💖", "🩵", "💚", "🌹"];
+const emojiSymbols = ["🌊", "🏖️", "🛵", "🐒", "🦍", "🌴", "🏂", "🏔️", "❤️", "💖", "💜", "💙", "💖", "🩵", "💚"];
 
-propose = () => {
+acceptRequest = () => {
   setInterval(() => {
     const heart = document.createElement("div");
 
+    // this is so ugly XD
     const heartClassName = Math.random();
-
-    if (heartClassName >= 0 && heartClassName < .166) {
+    if (heartClassName >= 0 && heartClassName < 0.083) {
+      heart.className = "heart90";
+    } 
+    else if (heartClassName >= 0.083 && heartClassName < 0.166) {
       heart.className = "heart180";
     } 
-    else if (heartClassName >= .166 && heartClassName < .332) {
+    else if (heartClassName >= 0.166 && heartClassName < 0.249) {
+      heart.className = "heart270";
+    } 
+    else if (heartClassName >= 0.249 && heartClassName < 0.332) {
       heart.className = "heart360";
     }
-    else if (heartClassName >= .332 && heartClassName < .498) {
+    else if (heartClassName >= 0.332 && heartClassName < 0.415) {
       heart.className = "heart720";
     }
-    else if (heartClassName >= .498 && heartClassName < .664) {
+    else if (heartClassName >= 0.415 && heartClassName < 0.498) {
+      
+      heart.className = "heart1440";
+    }
+    else if (heartClassName >= 0.498 && heartClassName < 0.581) {
+      heart.className = "heartReverse90";
+    }
+    else if (heartClassName >= 0.581 && heartClassName < 0.664) {
       heart.className = "heartReverse180";
     }
-    else if (heartClassName >= .664 && heartClassName < .83) {
+    else if (heartClassName >= 0.664 && heartClassName < 0.747) {
+      heart.className = "heartReverse270";
+    }
+    else if (heartClassName >= 0.747 && heartClassName < 0.83) {
       heart.className = "heartReverse360";
     }
-    else {
+    else if (heartClassName >= 0.83 && heartClassName < 0.913) {
       heart.className = "heartReverse720";
     }
+    else {
+      heart.className = "heartReverse1440";
+    }
 
-    heart.innerHTML = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+    heart.innerHTML = emojiSymbols[Math.floor(Math.random() * emojiSymbols.length)];
 
     const fontSize = Math.random() * (MAX_FONT_SIZE - MIN_FONT_SIZE) + MIN_FONT_SIZE;
     const animationDuration = Math.random() * (MAX_ANIM_DURATION - MIN_ANIM_DURATION) + MIN_ANIM_DURATION;
@@ -58,19 +77,17 @@ propose = () => {
 };
 
 declineRequest = () => {
-  alert("💔");
+  alert("...");
 }
 
 theDate();
-
 function theDate() {
     var date = new Date();
     var months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
     var currentDate = date.getDate();
     var month = months[date.getMonth()];
     var year = date.getFullYear();
-    document.getElementById("dateHere").innerHTML = month + "/" + 
-currentDate + "/" + year;
+    document.getElementById("dateHere").innerHTML = month + "/" + currentDate + "/" + year;
 }
 
 // // Animate Text with Anim JS

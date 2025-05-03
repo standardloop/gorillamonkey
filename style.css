@@ -86,6 +86,20 @@ footer a {
 }
 
 /* normal */
+.heart90 {
+    position: absolute;
+    top: -10px;
+    font-size: 48px;
+    animation: fall90 linear infinite;
+}
+
+@keyframes fall90 {
+    to {
+        transform: translateY(100vh) rotate(90deg);
+        opacity: 0;
+    }
+}
+
 .heart180 {
     position: absolute;
     top: -10px;
@@ -96,6 +110,20 @@ footer a {
 @keyframes fall180 {
     to {
         transform: translateY(100vh) rotate(180deg);
+        opacity: 0;
+    }
+}
+
+.heart270 {
+    position: absolute;
+    top: -10px;
+    font-size: 48px;
+    animation: fall270 linear infinite;
+}
+
+@keyframes fall270 {
+    to {
+        transform: translateY(100vh) rotate(270deg);
         opacity: 0;
     }
 }
@@ -128,7 +156,35 @@ footer a {
     }
 }
 
-/* reverser */
+.heart1440 {
+    position: absolute;
+    top: -10px;
+    font-size: 48px;
+    animation: fall1440 linear infinite;
+}
+
+@keyframes fall1440 {
+    to {
+        transform: translateY(100vh) rotate(1440deg);
+        opacity: 0;
+    }
+}
+
+/* reverse */
+.heartReverse90 {
+    position: absolute;
+    top: -10px;
+    font-size: 48px;
+    animation: fallReverse90 linear infinite;
+}
+
+@keyframes fallReverse90 {
+    to {
+        transform: translateY(100vh) rotate(-90deg);
+        opacity: 0;
+    }
+}
+
 .heartReverse180 {
     position: absolute;
     top: -10px;
@@ -136,10 +192,23 @@ footer a {
     animation: fallReverse180 linear infinite;
 }
 
-
 @keyframes fallReverse180 {
     to {
         transform: translateY(100vh) rotate(-180deg);
+        opacity: 0;
+    }
+}
+
+.heartReverse270 {
+    position: absolute;
+    top: -10px;
+    font-size: 48px;
+    animation: fallReverse270 linear infinite;
+}
+
+@keyframes fallReverse270 {
+    to {
+        transform: translateY(100vh) rotate(-270deg);
         opacity: 0;
     }
 }
@@ -151,14 +220,12 @@ footer a {
     animation: fallReverse360 linear infinite;
 }
 
-
 @keyframes fallReverse360 {
     to {
         transform: translateY(100vh) rotate(-360deg);
         opacity: 0;
     }
 }
-
 
 .heartReverse720 {
     position: absolute;
@@ -167,10 +234,23 @@ footer a {
     animation: fallReverse720 linear infinite;
 }
 
-
 @keyframes fallReverse720 {
     to {
         transform: translateY(100vh) rotate(-720deg);
+        opacity: 0;
+    }
+}
+
+.heartReverse1440 {
+    position: absolute;
+    top: -10px;
+    font-size: 48px;
+    animation: fallReverse1440 linear infinite;
+}
+
+@keyframes fallReverse1440 {
+    to {
+        transform: translateY(100vh) rotate(-1440deg);
         opacity: 0;
     }
 }
