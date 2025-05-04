@@ -2,7 +2,6 @@ html {
     height: 100%;
 }
 
-
 body {
     background: linear-gradient(116.82deg, #ff94e7 0%, #96e8ff 100%);
 }
@@ -29,6 +28,22 @@ h1 {
 .btn:hover {
     background-color: #ff4690;
     border: 2px solid white;
+}
+
+.btnSide {
+    color: gray;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    width: 5px;
+    height: 5px;
+    margin: 25px 10px;
+    font-weight: bold;
+}
+
+.btnSide:hover {
+    background-color: #ff4690;
+    border: 1px solid white;
 }
 
 @media (max-width: 1148px) {

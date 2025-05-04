@@ -2,6 +2,8 @@ const parentElement = document.getElementById("parentElement");
 const showMassage = document.getElementById("showMassage");
 const changeColor = document.body.style;
 
+let IS_ACCEPT = false;
+let IS_EMOJIS = true;
 const HEART_INTERVAL = 100;
 const HEART_LIFETIME = 50000;
 const MIN_FONT_SIZE = 10;
@@ -11,65 +13,69 @@ const MAX_ANIM_DURATION = 12;
 
 const emojiSymbols = ["🌅", "🌊", "🏖️", "🛵", "🐒", "🦍", "🌴", "🏂", "🏔️", "❤️", "💖", "💜", "💙", "💖", "🩵", "💚"];
 
+setInterval(() => {
+  if (IS_ACCEPT && IS_EMOJIS) {
+
+  const heart = document.createElement("div");
+
+  // this is so ugly XD, 
+  // FIXME
+  const heartClassName = Math.random();
+  if (heartClassName >= 0 && heartClassName < 0.083) {
+    heart.className = "heart90";
+  } 
+  else if (heartClassName >= 0.083 && heartClassName < 0.166) {
+    heart.className = "heart180";
+  } 
+  else if (heartClassName >= 0.166 && heartClassName < 0.249) {
+    heart.className = "heart270";
+  } 
+  else if (heartClassName >= 0.249 && heartClassName < 0.332) {
+    heart.className = "heart360";
+  }
+  else if (heartClassName >= 0.332 && heartClassName < 0.415) {
+    heart.className = "heart720";
+  }
+  else if (heartClassName >= 0.415 && heartClassName < 0.498) {
+    heart.className = "heart1440";
+  }
+  else if (heartClassName >= 0.498 && heartClassName < 0.581) {
+    heart.className = "heartReverse90";
+  }
+  else if (heartClassName >= 0.581 && heartClassName < 0.664) {
+    heart.className = "heartReverse180";
+  }
+  else if (heartClassName >= 0.664 && heartClassName < 0.747) {
+    heart.className = "heartReverse270";
+  }
+  else if (heartClassName >= 0.747 && heartClassName < 0.83) {
+    heart.className = "heartReverse360";
+  }
+  else if (heartClassName >= 0.83 && heartClassName < 0.913) {
+    heart.className = "heartReverse720";
+  }
+  else {
+    heart.className = "heartReverse1440";
+  }
+
+  heart.innerHTML = emojiSymbols[Math.floor(Math.random() * emojiSymbols.length)];
+
+  const fontSize = Math.random() * (MAX_FONT_SIZE - MIN_FONT_SIZE) + MIN_FONT_SIZE;
+  const animationDuration = Math.random() * (MAX_ANIM_DURATION - MIN_ANIM_DURATION) + MIN_ANIM_DURATION;
+
+  Object.assign(heart.style, {
+    left: Math.random() * 100 + "vw",
+    fontSize: fontSize + "px",
+    animationDuration: animationDuration + "s"
+  });
+
+  document.body.appendChild(heart);
+  setTimeout(() => heart.remove(), HEART_LIFETIME);
+  }
+}, HEART_INTERVAL);
+
 acceptRequest = () => {
-  setInterval(() => {
-    const heart = document.createElement("div");
-
-    // this is so ugly XD, 
-    // FIXME
-    const heartClassName = Math.random();
-    if (heartClassName >= 0 && heartClassName < 0.083) {
-      heart.className = "heart90";
-    } 
-    else if (heartClassName >= 0.083 && heartClassName < 0.166) {
-      heart.className = "heart180";
-    } 
-    else if (heartClassName >= 0.166 && heartClassName < 0.249) {
-      heart.className = "heart270";
-    } 
-    else if (heartClassName >= 0.249 && heartClassName < 0.332) {
-      heart.className = "heart360";
-    }
-    else if (heartClassName >= 0.332 && heartClassName < 0.415) {
-      heart.className = "heart720";
-    }
-    else if (heartClassName >= 0.415 && heartClassName < 0.498) {
-      heart.className = "heart1440";
-    }
-    else if (heartClassName >= 0.498 && heartClassName < 0.581) {
-      heart.className = "heartReverse90";
-    }
-    else if (heartClassName >= 0.581 && heartClassName < 0.664) {
-      heart.className = "heartReverse180";
-    }
-    else if (heartClassName >= 0.664 && heartClassName < 0.747) {
-      heart.className = "heartReverse270";
-    }
-    else if (heartClassName >= 0.747 && heartClassName < 0.83) {
-      heart.className = "heartReverse360";
-    }
-    else if (heartClassName >= 0.83 && heartClassName < 0.913) {
-      heart.className = "heartReverse720";
-    }
-    else {
-      heart.className = "heartReverse1440";
-    }
-
-    heart.innerHTML = emojiSymbols[Math.floor(Math.random() * emojiSymbols.length)];
-
-    const fontSize = Math.random() * (MAX_FONT_SIZE - MIN_FONT_SIZE) + MIN_FONT_SIZE;
-    const animationDuration = Math.random() * (MAX_ANIM_DURATION - MIN_ANIM_DURATION) + MIN_ANIM_DURATION;
-
-    Object.assign(heart.style, {
-      left: Math.random() * 100 + "vw",
-      fontSize: fontSize + "px",
-      animationDuration: animationDuration + "s"
-    });
-
-    document.body.appendChild(heart);
-    setTimeout(() => heart.remove(), HEART_LIFETIME);
-  }, HEART_INTERVAL);
-
+  IS_ACCEPT = true;
   parentElement.style.display = "none";
   successMessage.style.display = "block";
   changeColor.background =
@@ -78,6 +84,21 @@ acceptRequest = () => {
 
 declineRequest = () => {
   alert("...");
+}
+
+toggleEmojis = () => {
+  IS_EMOJIS = !IS_EMOJIS;
+  const emojiNormalClassNames = ["heart90", "heart180", "heart270", "heart360", "heart720", "heart1440"]
+  const emojiReverseClassNames = ["heartReverse90", "heartReverse180", "heartReverse270", "heartReverse360", "heartReverse720", "heartReverse1440"]
+  const emojiClassNames = emojiNormalClassNames.concat(emojiReverseClassNames);
+
+  var arrayLength = emojiClassNames.length;
+  for (var i = 0; i < arrayLength; i++) {
+    const elements = document.querySelectorAll('div.' + emojiClassNames[i]);
+     elements.forEach(element => {
+       element.remove();
+     });
+  }
 }
 
 theDate();
