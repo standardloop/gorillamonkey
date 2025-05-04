@@ -9,13 +9,14 @@ const MAX_FONT_SIZE = 50;
 const MIN_ANIM_DURATION = 4;
 const MAX_ANIM_DURATION = 12;
 
-const emojiSymbols = ["🌊", "🏖️", "🛵", "🐒", "🦍", "🌴", "🏂", "🏔️", "❤️", "💖", "💜", "💙", "💖", "🩵", "💚"];
+const emojiSymbols = ["🌅", "🌊", "🏖️", "🛵", "🐒", "🦍", "🌴", "🏂", "🏔️", "❤️", "💖", "💜", "💙", "💖", "🩵", "💚"];
 
 acceptRequest = () => {
   setInterval(() => {
     const heart = document.createElement("div");
 
-    // this is so ugly XD
+    // this is so ugly XD, 
+    // FIXME
     const heartClassName = Math.random();
     if (heartClassName >= 0 && heartClassName < 0.083) {
       heart.className = "heart90";
@@ -33,7 +34,6 @@ acceptRequest = () => {
       heart.className = "heart720";
     }
     else if (heartClassName >= 0.415 && heartClassName < 0.498) {
-      
       heart.className = "heart1440";
     }
     else if (heartClassName >= 0.498 && heartClassName < 0.581) {
