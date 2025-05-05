@@ -79,7 +79,7 @@ acceptRequest = () => {
   parentElement.style.display = "none";
   successMessage.style.display = "block";
   changeColor.background =
-    "linear-gradient(117deg, #ff41f7 0%, rgba(255, 73, 73, 0.81) 100%)";
+    "linear-gradient(117deg,rgb(255, 74, 152) 0%, rgba(251, 39, 255, 0.81) 100%)";
 };
 
 declineRequest = () => {
